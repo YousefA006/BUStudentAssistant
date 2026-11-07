@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bethlehem University · Student Assistant</title>
+<link rel="icon" href="/static/bu-logo.png">
+<link rel="stylesheet" href="/static/style.css?v=2">
+</head>
+<body>
+
+<!-- ============ AUTH ============ -->
+<section id="auth" class="auth hidden">
+  <div class="auth-card">
+    <div class="brand">
+      <img class="brand-logo" src="/static/bu-logo.png" alt="Bethlehem University">
+      <div>
+        <div class="brand-name" data-i18n="appName">Student Assistant</div>
+        <div class="brand-sub" data-i18n="uni">Bethlehem University</div>
+      </div>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-tab="login" data-i18n="login">Log in</button>
+      <button class="tab" data-tab="register" data-i18n="register">Create account</button>
+    </div>
+    <form id="auth-form" autocomplete="on">
+      <label class="field reg-only hidden"><span data-i18n="name">Full name</span>
+        <input name="name" type="text" autocomplete="name" dir="auto"></label>
+      <label class="field"><span data-i18n="email">Email</span>
+        <input name="email" type="email" autocomplete="email" required dir="ltr"></label>
+      <label class="field"><span data-i18n="password">Password</span>
+        <input name="password" type="password" autocomplete="current-password" required minlength="8" dir="ltr"></label>
+      <div id="auth-error" class="error hidden"></div>
+      <button class="btn primary wide" type="submit" id="auth-submit" data-i18n="login">Log in</button>
+    </form>
+    <button class="lang-toggle ghost" type="button">العربية</button>
+  </div>
+</section>
+
+<!-- ============ APP ============ -->
+<section id="app" class="app hidden">
+  <aside id="sidebar" class="sidebar">
+    <div class="brand small">
+      <img class="brand-logo" src="/static/bu-logo.png" alt="Bethlehem University">
+      <div>
+        <div class="brand-name" data-i18n="appName">Student Assistant</div>
+        <div class="brand-sub" data-i18n="uni">Bethlehem University</div>
+      </div>
+    </div>
+
+    <div class="side-section">
+      <div class="side-title" data-i18n="addPdf">Add documents</div>
+      <label id="dropzone" class="dropzone">
+        <input id="file-input" type="file" accept=".pdf,.docx,.pptx,.xlsx,.csv,.tsv,.txt,.md,.markdown,.html,.htm,.json" multiple hidden>
+        <span class="dz-icon">⇪</span>
+        <span data-i18n="dropHint">Drop files here or click to choose</span>
+        <span class="dz-types">PDF · Word · PowerPoint · Excel · CSV · TXT · MD · HTML · JSON</span>
+      </label>
+      <label class="check"><input type="checkbox" id="share-check"> <span data-i18n="shareAll">Share with all students</span></label>
+      <div id="upload-status" class="upload-status"></div>
+    </div>
+
+    <div class="side-section grow">
+      <div class="side-title row">
+        <span data-i18n="knowledge">Knowledge base</span>
+        <button id="rescan-btn" class="link-btn" data-i18n="rescan">Rescan folder</button>
+      </div>
+      <ul id="doc-list" class="doc-list"></ul>
+    </div>
+
+    <div class="side-footer">
+      <div class="user-line"><span id="user-name" dir="auto"></span></div>
+      <div class="row gap">
+        <button class="lang-toggle ghost small-btn" type="button">العربية</button>
+        <button id="logout-btn" class="ghost small-btn" data-i18n="logout">Log out</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button id="menu-btn" class="ghost icon-btn" aria-label="Menu">☰</button>
+      <div class="topbar-title" data-i18n="askTitle">Ask about your university documents</div>
+      <button id="clear-btn" class="ghost small-btn" data-i18n="clear">Clear chat</button>
+    </header>
+
+    <div id="messages" class="messages">
+      <div id="empty" class="empty">
+        <img class="empty-logo" src="/static/bu-logo.png" alt="">
+        <h1 data-i18n="welcome">How can I help?</h1>
+        <p data-i18n="welcomeSub">I answer only from the PDFs in the knowledge base and cite the exact page and passage for every answer. If the answer isn't in the documents, I'll tell you I don't know.</p>
+        <div class="suggestions">
+          <button class="chip" dir="auto">What are the requirements to graduate?</button>
+          <button class="chip" dir="auto">ما هي شروط التسجيل في الجامعة؟</button>
+          <button class="chip" dir="auto">How do I withdraw from a course?</button>
+        </div>
+      </div>
+    </div>
+
+    <form id="ask-form" class="composer">
+      <label class="attach" title="Upload a document">
+        <input id="file-input-2" type="file" accept=".pdf,.docx,.pptx,.xlsx,.csv,.tsv,.txt,.md,.markdown,.html,.htm,.json" multiple hidden>📎
+      </label>
+      <textarea id="question" rows="1" dir="auto" placeholder="Ask a question in English or Arabic…" data-i18n-ph="placeholder"></textarea>
+      <button id="send-btn" class="btn primary" type="submit" data-i18n="send">Ask</button>
+    </form>
+  </main>
+</section>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
