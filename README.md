@@ -1,4 +1,4 @@
-# المرشد الأكاديمي الذكي — BU Student Assistant
+ # المرشد الأكاديمي الذكي لتخصصين هندسة البرمجيات و المحاكاة الحاسوبية —  BU Student Assistant for Software engineering and Computer simulation students
 
 **IEEE RAG Hackathon at Bethlehem University · Smart Academic Advisor challenge**
 
